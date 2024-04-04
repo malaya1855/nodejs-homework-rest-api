@@ -10,16 +10,16 @@ const contactSchema = new Schema(
       type: String,
       required: [true, "Set name for contact"],
     },
-    email: {
-      type: String,
-    },
+    // email: {
+    //   type: String,
+    // },
     phone: {
       type: String,
     },
-    favorite: {
-      type: Boolean,
-      default: false,
-    },
+    // favorite: {
+    //   type: Boolean,
+    //   default: false,
+    // },
     owner: {
       type: Schema.Types.ObjectId,
       ref: "user",
@@ -33,8 +33,8 @@ contactSchema.post("save", handleMongooseError);
 const addSchema = Joi.object({
   name: Joi.string().required(),
   phone: Joi.string().required(),
-  email: Joi.string().required(),
-  favorite: Joi.boolean(),
+  // email: Joi.string().required(),
+  // favorite: Joi.boolean(),
 });
 
 const addFavoriteSchema = Joi.object({ favorite: Joi.boolean().required() });

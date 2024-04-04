@@ -9,6 +9,10 @@ const userSchema = new Schema({
     type: String,
     required: [true, "Set password for user"],
   },
+  name: {
+    type: String,
+    required: [true, "Set name for user"],
+  },
   email: {
     type: String,
     required: [true, "Email is required"],
@@ -36,6 +40,7 @@ userSchema.post("save", handleMongooseError);
 const registerSchema = Joi.object({
   email: Joi.string().pattern(emailRegexp).required(),
   password: Joi.string().required(),
+  name: Joi.string().required(),
 });
 
 const verifySchema = Joi.object({
